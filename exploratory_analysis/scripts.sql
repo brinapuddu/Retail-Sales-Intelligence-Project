@@ -21,7 +21,7 @@ SELECT DISTINCT country FROM gold.dim_customers
 -- Explore all categories: The Major Divisions
 SELECT DISTINCT category, subcategory, product_name FROM gold.dim_products
 
---Explore Dates 
+--Explore dates 
 SELECT 
 MIN(order_date) as first_order,
 MAX(order_date) as last_order, 
@@ -37,8 +37,10 @@ DATEDIFF(year, MAX(birthdate), GETDATE()) AS youngest_age
 FROM 
 gold.dim_customers 
 
+----------------------
 --Measure Exploration 
-
+----------------------
+  
 -- Find the total sales
 SELECT
 SUM(sales_amount) as total_sales
@@ -87,4 +89,3 @@ SELECT 'Number of Products', COUNT(product_key) FROM gold.dim_products
 UNION ALL
 SELECT 'Number of Customers', COUNT(DISTINCT customer_key) as total_customers FROM gold.dim_customers
 
---
